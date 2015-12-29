@@ -1,5 +1,8 @@
 main:
-    ENV=PRDOCUTION ./bin/www
+	ENV=PRDOCUTION ./bin/www
     
 dev:
-    ./bin/www
+	./bin/www
+    
+    
+.PHONY: main dev
