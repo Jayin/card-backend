@@ -26,3 +26,8 @@ Windows | [Instructions on our wiki](https://github.com/Automattic/node-canvas/w
 ### DEPLOY ON DEVELOPMENT
 
     ./bin/www
+    
+### 静态文件目录`public`
+
+
+七牛指向这个就行了
