@@ -4,7 +4,9 @@ var request = require('request')
 var createDesign = require('../libs/createDesign')
 var fs = require('fs')
 var path = require('path')
+var cors = require('cors')
 
+router.use(cors())
 router.get('/', function (req, res, next) {
   if (!req.query.CampaignDesignId) {
     res.json({
