@@ -42,7 +42,8 @@ var renderDesign = function (canvas, context, component) {
 var renderComonent = function (canvas, context, component) {
   var image = component.image
   var scale = canvas.width / 1044
-  context.drawImage(image, 0, 0, image.width, image.height, (component.x || 0) * scale, (component.y || 0) * scale, image.width * scale, image.height * scale)
+  //注意这里额外增加了放缩比例
+  context.drawImage(image, 0, 0, image.width, image.height, (component.x || 0) * scale, (component.y || 0) * scale, image.width * (scale+0.3), image.height * (scale+0.3))
 }
 /**
  * 填充campaignDesign的数据到Resource
