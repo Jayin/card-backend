@@ -9,9 +9,9 @@ var cors = require('cors')
 router.use(cors())
 router.get('/', function (req, res, next) {
   if (!req.query.CampaignDesignId) {
-    res.json({
+    res.status(400).json({
       'msg': 'requrie params `CampaignDesignId`'
-    }, 400)
+    })
     return
   }
   request({
@@ -23,16 +23,16 @@ router.get('/', function (req, res, next) {
     }
   }, function (err, responseMsg, campaignDesign) {
     if (err) {
-      res.json({
+      res.status(400).json({
         'msg': err
-      }, 400)
+      })
       return
     }
     campaignDesign = JSON.parse(campaignDesign)
     if(!campaignDesign.objectId){
-        return res.json({
+        return res.status(404).json({
             'msg': 'Not found resource'
-        }, 404)
+        })
     }
     //检查是否已生成
     if (fs.existsSync(path.join(__dirname, '../public/designs/' + campaignDesign.objectId + '.jpg'))) {
