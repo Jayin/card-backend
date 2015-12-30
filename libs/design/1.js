@@ -12,7 +12,7 @@ module.exports = {
         "x": "200",
         "y": "270",
         "fillStyle": "#000000",
-        "fontSize": "28"
+        "fontSize": "38"
 
     }]
 }
