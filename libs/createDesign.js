@@ -16,7 +16,11 @@ var renderComponentInput = function (canvas, context, inputs, scale) {
   if (inputs) {
     inputs.forEach(function (input) {
       context.save()
-      context.font = parseInt(input.fontSize) * scale + 'px msyh'
+      context.font = parseInt(input.fontSize) * scale + 'px Monaco'
+      if(context.measureText('你好').width === 0){
+          //unsupport this front
+          context.font = parseInt(input.fontSize) * scale + 'px msyh'
+      }
       context.fillStyle = input.fillStyle
       context.fillText(input.value, parseInt(input.x) * scale, parseInt(input.y) * scale)
       context.restore()
