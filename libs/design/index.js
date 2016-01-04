@@ -5,6 +5,8 @@ let Resource = {
     "3": require('./3'),
     "4": require('./4'),
     "5": require('./5'),
+    "6": require('./6'),
+    "7": require('./7'),
     "water_mark": require('./water_mark'),
 }
 

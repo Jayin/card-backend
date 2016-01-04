@@ -82,9 +82,8 @@ module.exports = function (campaignDesign, callback) {
 
   renderDesign(canvas, context, mergeResource[campaignDesign.designId])
   renderComonent(canvas, context, mergeResource['water_mark'])
-  console.log(mergeResource[campaignDesign.designId].url)
   var outputPath = path.join(__dirname , '../public/designs', campaignDesign.objectId + (mergeResource[campaignDesign.designId].url.indexOf('png') == -1 ? '.jpg' : '.png'))
-  console.log(outputPath)
+  console.log('generated==> '+outputPath)
   var out = fs.createWriteStream(outputPath)
   var stream
   if (mergeResource[campaignDesign.designId].url.indexOf('png') == -1) {
