@@ -17,9 +17,9 @@ var renderComponentInput = function (canvas, context, inputs, scale) {
     inputs.forEach(function (input) {
       context.save()
       context.font = parseInt(input.fontSize) * scale + 'px Monaco'
-      if(context.measureText('你好').width === 0){
-          //unsupport this front
-          context.font = parseInt(input.fontSize) * scale + 'px msyh'
+      if (context.measureText('你好').width === 0) {
+        // unsupport this front
+        context.font = parseInt(input.fontSize) * scale + 'px msyh'
       }
       context.fillStyle = input.fillStyle
       context.fillText(input.value, parseInt(input.x) * scale, parseInt(input.y) * scale)
@@ -46,8 +46,8 @@ var renderDesign = function (canvas, context, component) {
 var renderComonent = function (canvas, context, component) {
   var image = component.image
   var scale = canvas.width / 1044
-  //注意这里额外增加了放缩比例
-  context.drawImage(image, 0, 0, image.width, image.height, (component.x || 0) * scale, (component.y || 0) * scale, image.width * (scale+0.3), image.height * (scale+0.3))
+  // 注意这里额外增加了放缩比例
+  context.drawImage(image, 0, 0, image.width, image.height, (component.x || 0) * scale, (component.y || 0) * scale, image.width * (scale + 0.3), image.height * (scale + 0.3))
 }
 /**
  * 填充campaignDesign的数据到Resource
@@ -82,11 +82,18 @@ module.exports = function (campaignDesign, callback) {
 
   renderDesign(canvas, context, mergeResource[campaignDesign.designId])
   renderComonent(canvas, context, mergeResource['water_mark'])
-
-  var out = fs.createWriteStream(path.join(__dirname , '../public/designs', campaignDesign.objectId + '.jpg'))
-  var stream = canvas.jpegStream({
-    bufsize: 4096, quality: 75, progressive: false
-  })
+  console.log(mergeResource[campaignDesign.designId].url)
+  var outputPath = path.join(__dirname , '../public/designs', campaignDesign.objectId + (mergeResource[campaignDesign.designId].url.indexOf('png') == -1 ? '.jpg' : '.png'))
+  console.log(outputPath)
+  var out = fs.createWriteStream(outputPath)
+  var stream
+  if (mergeResource[campaignDesign.designId].url.indexOf('png') == -1) {
+    stream = canvas.jpegStream({
+      bufsize: 4096, quality: 75, progressive: false
+    })
+  } else {
+    stream = canvas.pngStream()
+  }
 
   stream.on('data', function (chunk) {
     out.write(chunk)
