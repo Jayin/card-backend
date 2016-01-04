@@ -12,7 +12,8 @@ let Resource = {
 
 let allImages = []
 for(let key in Resource){
-    allImages.push(Resource[key]['url'])
+    //不要大图
+    // allImages.push(Resource[key]['url'])
     if(Resource[key]['preview']){
         allImages.push(Resource[key]['preview'])
     }
