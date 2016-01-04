@@ -28,11 +28,11 @@ createDesign({
   ]
 })
 
-createDesign({
-  objectId: 'xxxx',
-  designId: '6',
-  inputs: [
-    'Jack','jack2'
-  ]
-})
+// createDesign({
+//   objectId: 'xxxx',
+//   designId: '6',
+//   inputs: [
+//     'Jack','jack2'
+//   ]
+// })
 
