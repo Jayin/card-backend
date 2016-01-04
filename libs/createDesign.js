@@ -11,6 +11,12 @@ var Canvas = require('canvas'),
 var msyh = new Canvas.Font('msyh', path.join(__dirname, '/font/msyh.ttf'))
 context.addFont(msyh)
 
+/**
+ * canvas 清空
+ */
+var clearCanvas = function(canvas, context){
+    context.clearRect(0,0,522,377)
+}
 // draw img
 var renderComponentInput = function (canvas, context, inputs, scale) {
   if (inputs) {
@@ -80,6 +86,7 @@ for (var key in DESIGN.Resource) {
 module.exports = function (campaignDesign, callback) {
   var mergeResource = fillResource(campaignDesign, _.cloneDeep(Resource))
 
+  clearCanvas(canvas, context)
   renderDesign(canvas, context, mergeResource[campaignDesign.designId])
   renderComonent(canvas, context, mergeResource['water_mark'])
   var outputPath = path.join(__dirname , '../public/designs', campaignDesign.objectId + (mergeResource[campaignDesign.designId].url.indexOf('png') == -1 ? '.jpg' : '.png'))

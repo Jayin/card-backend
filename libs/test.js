@@ -18,17 +18,19 @@ var createDesign = require('./createDesign')
 //   ]
 // })
 
-// createDesign({
-//   objectId: 'xxxx',
-//   designId: '6',
-//   inputs: [
-//     'Jack','jack2'
-//   ]
-// })
+
 
 createDesign({
   objectId: 'yyy',
   designId: '7',
+  inputs: [
+    'ruby','Ruby2'
+  ]
+})
+
+createDesign({
+  objectId: 'xxxx',
+  designId: '6',
   inputs: [
     'Jack','jack2'
   ]
