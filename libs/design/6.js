@@ -10,14 +10,14 @@ module.exports = {
         "key": "请输入新郎姓名",
         "value": "",
         "x": "240",
-        "y": "347",
+        "y": "337",
         "fillStyle": "#FFFFFF",
         "fontSize": "42"
     },{
         "key": "请输入新娘姓名",
         "value": "",
         "x": "240",
-        "y": "480",
+        "y": "470",
         "fillStyle": "#FFFFFF",
         "fontSize": "42"
     }]
