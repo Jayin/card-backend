@@ -10,16 +10,16 @@ let Resource = {
     "water_mark": require('./water_mark'),
 }
 
-let allImages = []
+let allRequiredImages = []
 for(let key in Resource){
     //不要大图
-    // allImages.push(Resource[key]['url'])
+    // allRequiredImages.push(Resource[key]['url'])
     if(Resource[key]['preview']){
-        allImages.push(Resource[key]['preview'])
+        allRequiredImages.push(Resource[key]['preview'])
     }
 }
 
 module.exports = {
     Resource: Resource,
-    allImages: allImages
+    allRequiredImages: allRequiredImages
 }
